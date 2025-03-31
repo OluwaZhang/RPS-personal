@@ -11,14 +11,14 @@
         <h1 class="text-3xl font-semibold">
             <ul class="flex gap-12">
                 <li>ROCK</li>
-                <li>PAPER</li>
+                <li>PAPER</li> 
                 <li>SCISSORS</li>
             </ul>
         </h1>
 
         <div class="flex gap-12">
             <p class="flex flex-col">Player
-                <span class="player-score">hello</span>
+                <span class="player-score">hello</span> 
             </p>
 
             <p class="flex flex-col">computer
@@ -45,6 +45,16 @@
                 <button class="font-bold border-2 border-black rounded-4xl py-1 px-3 active:bg-purple-950 active:text-amber-100"
                 
                 onclick='playerGame("scissors")'>SCISSORS</button>
+
+
+                <button class="font-bold border-2 border-black rounded-4xl py-1 px-3 active:bg-purple-950 active:text-amber-100"
+                
+                onclick='
+                        scoreBoard = {
+                        wins: 0,
+                        losses: 0,
+                        ties: 0,};
+                '>RESET GAME</button>
             </div>
         </div>
 
@@ -65,24 +75,18 @@
         //    }
         // }
         
-        
-        // let computerChoice = Math.floor(Math.random()*3 ) +1
+        // using an object to store the score  and it is created outside the scope and not inside the function.
 
-        // console.log(computerChoice)
-
-        // let computer = ""
-        // if (computerChoice === 1) {
-        //     computer = "rock"
-        // } else if (computerChoice === 2) {
-        //      computer = "paper"
-        // } else{
-        //     computer = "scissors"
-        // }
-        // console.log(computer);
+        let scoreBoard = {
+            wins: 0,
+            losses: 0,
+            ties: 0,
+        };
 
         function playerGame(playerMove)
         {
             const computer = computerMove()
+
             let result = ""
 
             if(playerMove === "scissors"){
@@ -97,12 +101,10 @@
 
                 console.log(result);
 
-                alert(result)
+                // alert(`you chose ${playerMove} and computer chose ${computer} therefore ${result} \nwins : ${scoreBoard.wins}, losses: ${scoreBoard.losses}, ties: ${scoreBoard.ties}`)
 
             } else if(playerMove === "paper"){
-                const computer = computerMove()
-
-                let result = ""
+                // const computer = computerMove()
 
                 if (computer === "rock"){
                     result = "you win"
@@ -114,12 +116,11 @@
 
                 console.log(result);
 
-                alert(result)
+                // alert(`you chose ${playerMove} and computer chose ${computer} therefore ${result} \nwins : ${scoreBoard.wins}, losses: ${scoreBoard.losses}, ties: ${scoreBoard.ties}`)
 
             }else if (playerMove === "rock"){
-                const computer = computerMove()
-                let result = ""
-
+                // const computer = computerMove()
+            
                 if (computer === "rock"){
                     result = "its a tie"
                 }else if(computer === "paper"){
@@ -128,20 +129,28 @@
                     result = "you win"
                 }
 
-                console.log(result);
-
-                alert(result)
-
+                console.log(result)         
             }
+
+
+            if (result === "you win") {
+                scoreBoard.wins++;
+            } else if(result === "you loose"){
+                scoreBoard.losses += 1;
+            }else if(result === "its a tie") {
+                scoreBoard.ties += 1;
+            }
+
+            alert(`you chose ${playerMove} and computer chose ${computer} therefore ${result} \nwins : ${scoreBoard.wins}, losses: ${scoreBoard.losses}, ties: ${scoreBoard.ties}`)      
             
         }
+
+      
 
 
 
         function computerMove() {
           const computerChoice = Math.floor(Math.random()*3 ) +1;
-
-            console.log(computerChoice);
 
             let computer = "";
 
@@ -153,7 +162,6 @@
                 computer = "scissors"
             }
 
-            console.log(computer)
             return computer;
         }
 
