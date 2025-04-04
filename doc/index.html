@@ -9,7 +9,7 @@
 <body class="bg-purple-950 h-screen flex flex-col justify-center items-center">
    <section class="flex flex-col  justify-around sm:border-3 sm:rounded-4xl p-5 h-screen sm:h-[50%] sm:w-2xl bg-purple-700">
         <h1 class="text-3xl font-semibold">
-            <ul class="flex justify-around">
+            <ul class="flex justify-around font-extrabold text-3xl">
                 <li>ROCK ✊</li>
                 <li>PAPER 🧻</li>
                 <li>SCISSORS ✂️</li>
@@ -17,25 +17,23 @@
         </h1>
 
         <div class="flex justify-around">
-            <p class="flex flex-col">Player
-                <span class="player-score">hello</span> 
-            </p>
+           <div>
+                <p class="flex  text-3xl">Player</p>
+                <p class="text-center text-2xl" id="player-score"></p>
+           </div>
 
-            <p class="flex flex-col">ties
-                <span class="tie-score">hello</span> 
-            </p>
-
-            <p class="flex flex-col">computer
-                <span class="computer-score">hi</span>
-            </p>
+           <div>
+                <p class="flex  text-3xl">Computer</p>
+                <p class="text-center" id="computer-score"></p>
+           </div>
         </div>
 
         <div class="flex flex-col gap-7">
-            <h2 class="text-center">
+            <h2 class="text-center font-extrabold text-2xl">
                 Choose your move
             </h2>
 
-            <div class="flex flex-col gap-7 sm:flex sm:flex-row sm:justify-around ">
+            <div class="flex flex-col gap-7 sm:flex-row sm:justify-around ">
                 <button class="font-bold border-2 border-black rounded-4xl py-1 px-3 active:bg-purple-950 active:text-amber-100" 
                 
                 onclick='playerGame("rock")'>ROCK</button>
@@ -60,11 +58,17 @@
                         ties: 0
                     };
                  localStorage.removeItem("score")
+                //  alert(`Wins : ${scoreBoard.wins}, Losses: ${scoreBoard.losses}, Ties: ${scoreBoard.ties}`)
+
+                 document.getElementById("announce").innerHTML = `Wins : ${scoreBoard.wins}, Losses: ${scoreBoard.losses}, Ties: ${scoreBoard.ties}`
+
+                 document.getElementById("player-score").innerHTML = "";
+
                 '>RESET GAME</button>
             </div>
         </div>
 
-        <p>how far</p>
+        <p class=" flex justify-center text-center p-5 text-2xl" id="announce"></p>
    </section>
 
     <script>
@@ -91,6 +95,7 @@
                 losses: 0,
                 ties: 0
             };
+            document.getElementById("announce").innerHTML = `Wins : ${scoreBoard.wins}, Losses: ${scoreBoard.losses}, Ties: ${scoreBoard.ties}`
         }
 
         function playerGame(playerMove)
@@ -100,6 +105,8 @@
             let result = ""
 
             if(playerMove === "scissors"){
+
+                document.getElementById("player-score").innerHTML = "✂️";
 
                 if (computer === "rock"){
                     result = "you loose"
@@ -116,6 +123,8 @@
             } else if(playerMove === "paper"){
                 // const computer = computerMove()
 
+                document.getElementById("player-score").innerHTML = "🧻";
+
                 if (computer === "rock"){
                     result = "you win"
                 }else if(computer === "paper"){
@@ -130,6 +139,8 @@
 
             }else if (playerMove === "rock"){
                 // const computer = computerMove()
+
+                document.getElementById("player-score").innerHTML = "✊";
             
                 if (computer === "rock"){
                     result = "its a tie"
@@ -144,20 +155,42 @@
 
 
             if (result === "you win") {
-                scoreBoard.wins++;
+                scoreBoard.wins += 1
             } else if(result === "you loose"){
                 scoreBoard.losses += 1;
             }else if(result === "its a tie") {
                 scoreBoard.ties += 1;
             }
 
+            // let counterPlay = document.getElementById("player-score").innerHTML;
+
+            // let counterCom = document.getElementById("computer-score").innerHTML;
+
+            // let counterTie = document.getElementById("ties-score").innerHTML;
+
+            // counterPlay = 0
+            // counterCom = 0
+            // counterTie = 0
+
+            // if (result === "you win") {
+            //     counterPlay += 1
+            // } else if(result === "you loose"){
+            //     counterCom += 1;
+            // }else if(result === "its a tie") {
+            //     counterTie += 1;
+            // }
+
+
             localStorage.setItem("score", JSON.stringify(scoreBoard))
 
             // console.log( localStorage.setItem("score", JSON.stringify(scoreBoard)));
             
 
-            alert(`you chose ${playerMove} and computer chose ${computer} therefore ${result} \nwins : ${scoreBoard.wins}, losses: ${scoreBoard.losses}, ties: ${scoreBoard.ties}`)      
+            // alert(`You chose ${playerMove} and computer chose ${computer} therefore ${result} \nwins : ${scoreBoard.wins}, losses: ${scoreBoard.losses}, ties: ${scoreBoard.ties}`)
             
+            document.getElementById("announce").innerHTML = `You chose ${playerMove} and Computer chose ${computer} therefore ${result} <br>  Wins : ${scoreBoard.wins}, Losses: ${scoreBoard.losses}, Ties: ${scoreBoard.ties}`
+            
+        
         }
 
       
