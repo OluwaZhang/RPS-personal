@@ -9,22 +9,26 @@
 <body class="bg-purple-950 h-screen flex flex-col justify-center items-center">
    <section class="flex flex-col  justify-around sm:border-3 sm:rounded-4xl p-5 h-screen sm:h-[50%] sm:w-2xl bg-purple-700">
         <h1 class="text-3xl font-semibold">
-            <ul class="flex justify-around font-extrabold text-3xl">
+            <ul class="hidden sm:flex sm:justify-around font-extrabold text-3xl ">
                 <li>ROCK ✊</li>
                 <li>PAPER 🧻</li>
                 <li>SCISSORS ✂️</li>
             </ul>
+
+            <p class="sm:hidden flex justify-center">
+                ✊/🧻/✂️
+            </p>
         </h1>
 
         <div class="flex justify-around">
            <div>
                 <p class="flex  text-3xl">Player</p>
-                <p class="text-center text-2xl" id="player-score"></p>
+                <p class="text-center text-3xl" id="player-score"></p>
            </div>
 
            <div>
                 <p class="flex  text-3xl">Computer</p>
-                <p class="text-center" id="computer-score"></p>
+                <p class="text-center text-3xl" id="computer-score"></p>
            </div>
         </div>
 
