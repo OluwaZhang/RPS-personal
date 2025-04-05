@@ -63,6 +63,7 @@
                  document.getElementById("announce").innerHTML = `Wins : ${scoreBoard.wins}, Losses: ${scoreBoard.losses}, Ties: ${scoreBoard.ties}`
 
                  document.getElementById("player-score").innerHTML = "";
+                 document.getElementById("computer-score").innerHTML = "";
 
                 '>RESET GAME</button>
             </div>
@@ -208,6 +209,16 @@
                 computer = "paper"
             } else{
                 computer = "scissors"
+            }
+
+            const compScore = document.getElementById("computer-score");
+
+            if (computerChoice === 1) {
+                compScore.innerHTML = "✊"
+            } else if (computerChoice === 2) {
+                compScore.innerHTML = "🧻"
+            } else{
+                compScore.innerHTML = "✂️"
             }
 
             return computer;
