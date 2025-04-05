@@ -77,18 +77,20 @@
    </section>
 
     <script>
-        // alert("welcome to a game of Rock, Paper and Scissors.");
-        //     startUp()
+        
+        alert("welcome to a game of Rock, Paper and Scissors.");
+        startUp()
 
-        // function startUp() {
-        //    let startUpQest = confirm("would you like to play with us");
-        //    if (startUpQest) {
-        //         alert("okay lets play")
-        //    } else {
-        //         alert("then dont waste our time and leave the website");
-        //         document.body.innerHTML = ""
-        //    }
-        // }
+        function startUp() {
+           let startUpQest = confirm("would you like to play with us");
+           if (startUpQest) {
+                alert("okay lets play")
+           } else {
+                alert("then dont waste our time and leave the website");
+                document.body.innerHTML = ""
+           }
+
+        }
         
         // using an object to store the score  and it is created outside the scope and not inside the function.
 
@@ -193,7 +195,7 @@
 
             // alert(`You chose ${playerMove} and computer chose ${computer} therefore ${result} \nwins : ${scoreBoard.wins}, losses: ${scoreBoard.losses}, ties: ${scoreBoard.ties}`)
             
-            document.getElementById("announce").innerHTML = `You chose ${playerMove} and Computer chose ${computer} therefore ${result} <br>  Wins : ${scoreBoard.wins}, Losses: ${scoreBoard.losses}, Ties: ${scoreBoard.ties}`
+            document.getElementById("announce").innerHTML = `You chose ${playerMove} and Computer chose ${computer} Therefore ${result} <br>  Wins : ${scoreBoard.wins}, Losses: ${scoreBoard.losses}, Ties: ${scoreBoard.ties}`
             
         
         }
