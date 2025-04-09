@@ -38,22 +38,22 @@
             </h2>
 
             <div class="flex flex-col gap-7 sm:flex-row sm:justify-around ">
-                <button class="font-bold border-2 border-black rounded-4xl py-1 px-3 active:bg-purple-950 active:text-amber-100" 
+                <button class="font-bold border-2 border-black rounded-4xl py-1 px-3 active:bg-purple-950 active:text-amber-100 cursor-pointer" 
                 
                 onclick='playerGame("rock")'>ROCK</button>
 
 
-                <button class="font-bold border-2 border-black rounded-4xl py-1 px-3 active:bg-purple-950 active:text-amber-100"
+                <button class="font-bold border-2 border-black rounded-4xl py-1 px-3 active:bg-purple-950 active:text-amber-100 cursor-pointer"
                 
                 onclick='playerGame("paper")'>PAPER</button>
 
                 
-                <button class="font-bold border-2 border-black rounded-4xl py-1 px-3 active:bg-purple-950 active:text-amber-100"
+                <button class="font-bold border-2 border-black rounded-4xl py-1 px-3 active:bg-purple-950 active:text-amber-100 cursor-pointer"
                 
                 onclick='playerGame("scissors")'>SCISSORS</button>
 
 
-                <button class="font-bold border-2 border-black rounded-4xl py-1 px-3 active:bg-purple-950 active:text-amber-100"
+                <button class="font-bold border-2 border-black rounded-4xl py-1 px-3 active:bg-purple-950 active:text-amber-100 cursor-pointer"
                 
                 onclick='
                      scoreBoard = {
@@ -78,19 +78,19 @@
 
     <script>
         
-        alert("welcome to a game of Rock, Paper and Scissors.");
-        startUp()
+        // alert("welcome to a game of Rock, Paper and Scissors.");
+        // startUp()
 
-        function startUp() {
-           let startUpQest = confirm("would you like to play with us");
-           if (startUpQest) {
-                alert("okay lets play")
-           } else {
-                alert("then dont waste our time and leave the website");
-                document.body.innerHTML = ""
-           }
+        // function startUp() {
+        //    let startUpQest = confirm("would you like to play with us");
+        //    if (startUpQest) {
+        //         alert("okay lets play")
+        //    } else {
+        //         alert("then dont waste our time and leave the website");
+        //         document.body.innerHTML = ""
+        //    }
 
-        }
+        // }
         
         // using an object to store the score  and it is created outside the scope and not inside the function.
 
